@@ -49,7 +49,6 @@ function chooseExpenses() {
 
         if (typeof (expenses) === "string" && typeof (expenses) != null && typeof (costExpenses) != null &&
             expenses != "" && costExpenses != "" && expenses.length < 50) {
-            console.log("done");
             appData.expenses[expenses] = costExpenses;
         } else {
             console.log("bad result");
@@ -58,7 +57,22 @@ function chooseExpenses() {
     }
 }
 
-//Запрос необязательных статей расхода и добавление в БД
+//Запрос списка названий необязательных статей расхода и добавление в БД, без стоимости
+function chooseOptExpenses() {
+    for (let i = 0; i < 3; i++) {
+        let optExpenses = prompt("Введите необязательную статью расходов в этом месяце");
+
+        if (typeof (optExpenses) === "string" && typeof (optExpenses) != null && 
+        optExpenses != "" && optExpenses.length < 50) {
+            appData.optionalExpenses[i+1] = optExpenses;
+        } else {
+            console.log("bad result");
+            i--;
+        }
+    }  
+}
+
+/* //Запрос необязательных статей расхода и добавление в БД
 function chooseOptExpenses() {
     for (let i = 0; i < 3; i++) {
         let optExpenses = prompt("Введите необязательную статью расходов в этом месяце");
@@ -73,7 +87,7 @@ function chooseOptExpenses() {
             i--;
         }
     }  
-}
+} */
 
 //Вычисление месячного дохода от банковских накоплений
 function checkSavings() {
