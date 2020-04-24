@@ -1,5 +1,6 @@
 'use strict';
 
+//Блок с глобальными переменными
 let money;
 let time;
 
@@ -25,7 +26,7 @@ detectLevel();  //Расчет уровня достатка
 
 chooseOptExpenses();
 
-console.log(appData);
+console.log(appData);  //Вывод БД
 
 //Запрос бюджета на месяц
 function start() {
